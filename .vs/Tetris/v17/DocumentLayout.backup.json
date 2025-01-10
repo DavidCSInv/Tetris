@@ -1,18 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\david\\source\\repos\\Tetris\\",
+  "WorkspaceRootPath": "C:\\Tetris\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F826065C-87CA-42EA-B0A8-C7C52BBBAD81}|Tetris\\Tetris.csproj|c:\\users\\david\\source\\repos\\tetris\\tetris\\gamegrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F826065C-87CA-42EA-B0A8-C7C52BBBAD81}|Tetris\\Tetris.csproj|solutionrelative:tetris\\gamegrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F826065C-87CA-42EA-B0A8-C7C52BBBAD81}|Tetris\\Tetris.csproj|c:\\tetris\\tetris\\grid\\iblock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F826065C-87CA-42EA-B0A8-C7C52BBBAD81}|Tetris\\Tetris.csproj|solutionrelative:tetris\\grid\\iblock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F826065C-87CA-42EA-B0A8-C7C52BBBAD81}|Tetris\\Tetris.csproj|c:\\users\\david\\source\\repos\\tetris\\tetris\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{F826065C-87CA-42EA-B0A8-C7C52BBBAD81}|Tetris\\Tetris.csproj|solutionrelative:tetris\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{F826065C-87CA-42EA-B0A8-C7C52BBBAD81}|Tetris\\Tetris.csproj|c:\\tetris\\tetris\\grid\\block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F826065C-87CA-42EA-B0A8-C7C52BBBAD81}|Tetris\\Tetris.csproj|solutionrelative:tetris\\grid\\block.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F826065C-87CA-42EA-B0A8-C7C52BBBAD81}|Tetris\\Tetris.csproj|c:\\users\\david\\source\\repos\\tetris\\tetris\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F826065C-87CA-42EA-B0A8-C7C52BBBAD81}|Tetris\\Tetris.csproj|solutionrelative:tetris\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F826065C-87CA-42EA-B0A8-C7C52BBBAD81}|Tetris\\Tetris.csproj|c:\\tetris\\tetris\\grid\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F826065C-87CA-42EA-B0A8-C7C52BBBAD81}|Tetris\\Tetris.csproj|solutionrelative:tetris\\grid\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F826065C-87CA-42EA-B0A8-C7C52BBBAD81}|Tetris\\Tetris.csproj|c:\\tetris\\tetris\\grid\\gamegrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F826065C-87CA-42EA-B0A8-C7C52BBBAD81}|Tetris\\Tetris.csproj|solutionrelative:tetris\\grid\\gamegrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,47 +26,59 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Gamegrid.cs",
-              "DocumentMoniker": "C:\\Users\\david\\source\\repos\\Tetris\\Tetris\\Gamegrid.cs",
-              "RelativeDocumentMoniker": "Tetris\\Gamegrid.cs",
-              "ToolTip": "C:\\Users\\david\\source\\repos\\Tetris\\Tetris\\Gamegrid.cs",
-              "RelativeToolTip": "Tetris\\Gamegrid.cs",
-              "ViewState": "AgIAAEkAAAAAAAAAAAAUwFMAAAAfAAAAAAAAAA==",
+              "Title": "IBlock.cs",
+              "DocumentMoniker": "C:\\Tetris\\Tetris\\Grid\\IBlock.cs",
+              "RelativeDocumentMoniker": "Tetris\\Grid\\IBlock.cs",
+              "ToolTip": "C:\\Tetris\\Tetris\\Grid\\IBlock.cs",
+              "RelativeToolTip": "Tetris\\Grid\\IBlock.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T01:03:28.151Z",
+              "WhenOpened": "2025-01-10T01:55:38.036Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\david\\source\\repos\\Tetris\\Tetris\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Tetris\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\david\\source\\repos\\Tetris\\Tetris\\MainWindow.xaml",
-              "RelativeToolTip": "Tetris\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-30T01:00:30.825Z"
+              "Title": "Block.cs",
+              "DocumentMoniker": "C:\\Tetris\\Tetris\\Grid\\Block.cs",
+              "RelativeDocumentMoniker": "Tetris\\Grid\\Block.cs",
+              "ToolTip": "C:\\Tetris\\Tetris\\Grid\\Block.cs",
+              "RelativeToolTip": "Tetris\\Grid\\Block.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAgwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T01:41:14.485Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\david\\source\\repos\\Tetris\\Tetris\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Tetris\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\david\\source\\repos\\Tetris\\Tetris\\MainWindow.xaml.cs",
-              "RelativeToolTip": "Tetris\\MainWindow.xaml.cs",
+              "Title": "Position.cs",
+              "DocumentMoniker": "C:\\Tetris\\Tetris\\Grid\\Position.cs",
+              "RelativeDocumentMoniker": "Tetris\\Grid\\Position.cs",
+              "ToolTip": "C:\\Tetris\\Tetris\\Grid\\Position.cs",
+              "RelativeToolTip": "Tetris\\Grid\\Position.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T01:38:32.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Gamegrid.cs",
+              "DocumentMoniker": "C:\\Tetris\\Tetris\\Grid\\Gamegrid.cs",
+              "RelativeDocumentMoniker": "Tetris\\Grid\\Gamegrid.cs",
+              "ToolTip": "C:\\Tetris\\Tetris\\Grid\\Gamegrid.cs",
+              "RelativeToolTip": "Tetris\\Grid\\Gamegrid.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-30T01:00:25.235Z"
+              "WhenOpened": "2025-01-05T22:30:17.336Z",
+              "EditorCaption": ""
             }
           ]
         }
