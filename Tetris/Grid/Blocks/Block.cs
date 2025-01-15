@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Tetris.Models;
 
-namespace Tetris.Models
+namespace Tetris.Grid.Blocks
 {
     public abstract class Block
     {
@@ -53,7 +49,8 @@ namespace Tetris.Models
         public void Reset()
         {
             rotationState = 0;
-            offset = 0;
+            offset.Row = StartOffSet.Row;
+            offset.Column = StartOffSet.Column;
         }
     }
 }
