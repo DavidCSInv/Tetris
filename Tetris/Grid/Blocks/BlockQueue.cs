@@ -41,7 +41,7 @@ namespace Tetris.Grid.Blocks
             {
                 NextBlock = RandomBlock();
             }
-            while (block.id == NextBlock.id);
+            while (block.Id == NextBlock.Id);
 
             return block;
         }

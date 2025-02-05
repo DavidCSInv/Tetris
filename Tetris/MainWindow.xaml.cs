@@ -4,6 +4,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Tetris.Grid;
+using Tetris.Grid.Blocks;
 using Tetris.Models;
 
 namespace Tetris
@@ -39,7 +40,7 @@ namespace Tetris
 
         private readonly Image[,] _imageControl;
 
-        private readonly GameState _gameState = new();
+        private GameState _gameState = new();
         public MainWindow()
         {
             InitializeComponent();
@@ -82,11 +83,11 @@ namespace Tetris
             }
         }
 
-        private void DrawBlock(Grid.Blocks.Block block)
+        private void DrawBlock(Block block)
         {
             foreach (Position p in block.TitlePositions())
             {
-                _imageControl[p.Row, p.Column].Source = _titleImages[block.id];
+                _imageControl[p.Row, p.Column].Source = _titleImages[block.Id];
             }
         }
 
@@ -95,6 +96,20 @@ namespace Tetris
         {
             DrawGrid(gameState.GameGrid);
             DrawBlock(gameState.CurrentBlock);
+        }
+
+        private async Task GameLoop()
+        {
+            Draw(_gameState);
+
+            while (!_gameState.GameOver)
+            {
+                await Task.Delay(500);
+                _gameState.MoveBlockDown();
+                Draw(_gameState);
+            }
+
+            GameOverMenu.Visibility = Visibility.Visible;
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -115,10 +130,10 @@ namespace Tetris
                 case Key.Down:
                     _gameState.MoveBlockDown();
                     break;
-                case Key.Z:
+                case Key.Up:
                     _gameState.RotateBlockCW();
                     break;
-                case Key.X:
+                case Key.Z:
                     _gameState.RotateBlockCCW();
                     break;
                 default:
@@ -128,9 +143,16 @@ namespace Tetris
             Draw(_gameState);
         }
 
-        private void GameCanvas_Loaded(object sender, RoutedEventArgs e)
+        private async void GameCanvas_Loaded(object sender, RoutedEventArgs e)
         {
-            Draw(_gameState);
+            await GameLoop();
+        }
+
+        private async void PlayAgain_Click(object sender, RoutedEventArgs e)
+        {
+            _gameState = new GameState();
+            GameOverMenu.Visibility = Visibility.Hidden;
+            await GameLoop();
         }
     }
 }

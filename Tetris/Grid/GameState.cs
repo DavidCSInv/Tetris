@@ -15,15 +15,15 @@ namespace Tetris.Grid
         public BlockQueue BlockQueue { get; }
         public bool GameOver { get; private set; }
 
-        private Block currentBlock;
+        private Block _currentBlock;
 
         public Block CurrentBlock 
         {
-            get => currentBlock;
+            get => _currentBlock;
             private set
             {
-                currentBlock = value;
-                currentBlock.Reset();
+                _currentBlock = value;
+                _currentBlock.Reset();
             }
         }
 
@@ -101,7 +101,7 @@ namespace Tetris.Grid
         {
             foreach (Position p in CurrentBlock.TitlePositions())
             {
-                GameGrid[p.Row, p.Column] = CurrentBlock.id;
+                GameGrid[p.Row, p.Column] = CurrentBlock.Id;
             }
 
             GameGrid.ClearFullRows();

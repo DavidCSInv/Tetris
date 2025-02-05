@@ -12,7 +12,7 @@ namespace Tetris.Grid.Blocks
             [new (0,1),new (1,1),new (2,0),new Position(2,1)]
         ];
 
-        public override int id => 2;
+        public override int Id => 2;
 
         protected override Position[][] Titles => titles;
 

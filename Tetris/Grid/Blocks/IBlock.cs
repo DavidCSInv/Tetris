@@ -12,7 +12,7 @@ namespace Tetris.Grid.Blocks
             [new (0,1),new (1,1),new (2,1),new Position(3,1)]
         ];
 
-        public override int id => 1;
+        public override int Id => 1;
 
         protected override Position StartOffSet => new(-1, 3);
 
