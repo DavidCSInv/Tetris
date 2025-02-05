@@ -82,6 +82,16 @@ namespace Tetris.Grid
             }
         }
 
+        public void MoveBlockDown()
+        {
+            CurrentBlock.Move(1, 0);
+
+            if (!BlockFits())
+            {
+                CurrentBlock.Move(-1, 0);
+                PlaceBlock();
+            }
+        }
         private bool IsGameOver()
         {
             return !(GameGrid.IsRowEmpty(0) && GameGrid.IsRowFull(1));
@@ -105,15 +115,6 @@ namespace Tetris.Grid
                 CurrentBlock = BlockQueue.GetAndUpdate();
             }
         }
-        private void MoveBlockDown() 
-        {
-            CurrentBlock.Move(1, 0);
 
-            if (!BlockFits())
-            {
-                CurrentBlock.Move(-1, 0);
-                PlaceBlock();
-            }
-        }
     }
 }
