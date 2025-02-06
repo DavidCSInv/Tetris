@@ -94,7 +94,7 @@ namespace Tetris.Grid
         }
         private bool IsGameOver()
         {
-            return !(GameGrid.IsRowEmpty(0) && GameGrid.IsRowFull(1));
+            return !(GameGrid.IsRowEmpty(0) && GameGrid.IsRowEmpty(1));
         }
 
         private void PlaceBlock()

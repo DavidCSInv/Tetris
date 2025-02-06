@@ -14,7 +14,7 @@ namespace Tetris
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly ImageSource[] _titleImages =
+        private readonly ImageSource[] _tileImages =
         [
             new BitmapImage(new Uri("Assets/TileEmpty.png",UriKind.Relative)),
             new BitmapImage(new Uri("Assets/TileCyan.png",UriKind.Relative)),
@@ -38,13 +38,13 @@ namespace Tetris
             new BitmapImage(new Uri("Assets/Block-Z.png",UriKind.Relative)),
         ];
 
-        private readonly Image[,] _imageControl;
+        private readonly Image[,] _imageControls;
 
         private GameState _gameState = new();
         public MainWindow()
         {
             InitializeComponent();
-            _imageControl = SetupGameCanvas(_gameState.GameGrid);
+            _imageControls = SetupGameCanvas(_gameState.GameGrid);
         }
 
         private Image[,] SetupGameCanvas(GameGrid grid)
@@ -78,19 +78,18 @@ namespace Tetris
                 for (int c = 0; c < grid.Columns; c++)
                 {
                     int id = grid[r, c];
-                    _imageControl[r, c].Source = _titleImages[id];
+                    _imageControls[r, c].Source = _tileImages[id];
                 }
             }
         }
 
         private void DrawBlock(Block block)
         {
-            foreach (Position p in block.TitlePositions())
+            foreach(Position p in block.TitlePositions())
             {
-                _imageControl[p.Row, p.Column].Source = _titleImages[block.Id];
+                _imageControls[p.Row, p.Column].Source = _tileImages[block.Id];
             }
         }
-
 
         private void Draw(GameState gameState)
         {

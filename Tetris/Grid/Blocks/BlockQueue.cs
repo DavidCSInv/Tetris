@@ -19,7 +19,7 @@ namespace Tetris.Grid.Blocks
             new ZBlock(),
         ];
 
-        private readonly Random random = new Random();
+        private readonly Random _random = new ();
 
         public Block NextBlock {  get; private set; }
 
@@ -30,7 +30,7 @@ namespace Tetris.Grid.Blocks
 
         private Block RandomBlock()
         {
-            return blocks[random.Next(blocks.Length)];
+            return blocks[_random.Next(blocks.Length)];
         }
 
         public Block GetAndUpdate()
