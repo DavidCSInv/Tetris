@@ -39,6 +39,9 @@ namespace Tetris
         ];
 
         private readonly Image[,] _imageControls;
+        private readonly int _maxDelay = 1000;
+        private readonly int _minDelay = 75;
+        private readonly int _delayDecrease = 75;
 
         private GameState _gameState = new();
         public MainWindow()
@@ -62,7 +65,7 @@ namespace Tetris
                         Height = cellSize,
                     };
 
-                    Canvas.SetTop(imageControl, (r - 2) * cellSize);
+                    Canvas.SetTop(imageControl, (r - 2) * cellSize + 10);
                     Canvas.SetLeft(imageControl, c * cellSize);
                     GameCanvas.Children.Add(imageControl);
                     imageControls[r, c] = imageControl;
@@ -78,6 +81,7 @@ namespace Tetris
                 for (int c = 0; c < grid.Columns; c++)
                 {
                     int id = grid[r, c];
+                    _imageControls[r, c].Opacity = 1;
                     _imageControls[r, c].Source = _tileImages[id];
                 }
             }
@@ -87,14 +91,51 @@ namespace Tetris
         {
             foreach(Position p in block.TitlePositions())
             {
+                _imageControls[p.Row, p.Column].Opacity = 1;
                 _imageControls[p.Row, p.Column].Source = _tileImages[block.Id];
             }
+        }
+
+        private void DrawNextBlock(BlockQueue blockQueue)
+        {
+            Block next = blockQueue.NextBlock;
+
+            NextBlock.Source = _blockImages[next.Id];
+        }
+
+        private void DrawHeldBlock (Block heldBlock)
+        {
+            if(heldBlock == null)
+            {
+                HoldImage.Source = _blockImages[0];
+            }
+            else
+            {
+                HoldImage.Source = _blockImages[heldBlock.Id];
+            }
+        }
+
+        private void DrawGhostBlock (Block ghostBlock)
+        {
+            int dropDistance = _gameState.BlockDropDistance();
+
+            foreach(Position p in ghostBlock.TitlePositions())
+            {
+                _imageControls[p.Row + dropDistance, p.Column].Opacity = 0.25;
+                _imageControls[p.Row + dropDistance,p.Column].Source = _tileImages[ghostBlock.Id];
+            }
+
         }
 
         private void Draw(GameState gameState)
         {
             DrawGrid(gameState.GameGrid);
+            DrawGhostBlock(gameState.CurrentBlock);
             DrawBlock(gameState.CurrentBlock);
+            DrawNextBlock(gameState.BlockQueue);
+            DrawHeldBlock(gameState.HeldBlock);
+            ScoreText.Text = $"Score: {gameState.Score}";
+
         }
 
         private async Task GameLoop()
@@ -103,12 +144,14 @@ namespace Tetris
 
             while (!_gameState.GameOver)
             {
-                await Task.Delay(500);
+                int delay = Math.Max(_minDelay, _maxDelay - (_gameState.Score * _delayDecrease));
+                await Task.Delay(delay);
                 _gameState.MoveBlockDown();
                 Draw(_gameState);
             }
 
             GameOverMenu.Visibility = Visibility.Visible;
+            FinalScoreTotal.Text = $"Score: {_gameState.Score}";
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -129,11 +172,17 @@ namespace Tetris
                 case Key.Down:
                     _gameState.MoveBlockDown();
                     break;
-                case Key.Up:
+                case Key.Z:
                     _gameState.RotateBlockCW();
                     break;
-                case Key.Z:
+                case Key.X:
                     _gameState.RotateBlockCCW();
+                    break;
+                case Key.C:
+                    _gameState.HoldBlock();
+                    break;
+                case Key.V:
+                    _gameState.DropBlock();
                     break;
                 default:
                     return;
