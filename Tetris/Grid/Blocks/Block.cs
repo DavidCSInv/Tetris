@@ -4,7 +4,7 @@ namespace Tetris.Grid.Blocks
 {
     public abstract class Block
     {
-        protected abstract Position[][] Titles { get; }
+        protected abstract Position[][] Tiles { get; }
         protected abstract Position StartOffSet { get; }
         public abstract int Id { get; }
         private int _rotationState;
@@ -17,7 +17,7 @@ namespace Tetris.Grid.Blocks
 
         public IEnumerable<Position> TitlePositions()
         {
-            foreach (Position P in Titles[_rotationState])
+            foreach (Position P in Tiles[_rotationState])
             {
                 yield return new Position(P.Row + _offset.Row, P.Column + _offset.Column);
             }
@@ -25,14 +25,14 @@ namespace Tetris.Grid.Blocks
         //Não necessariamente o player vai rotacionar sentido horario por isso é void
         public void RotationCW()
         {
-            _rotationState = (_rotationState + 1) % Titles.Length;
+            _rotationState = (_rotationState + 1) % Tiles.Length;
         }
 
         public void RotationCCW()
         {
             if (_rotationState == 0)
             {
-                _rotationState = Titles.Length - 1;
+                _rotationState = Tiles.Length - 1;
             }
             else
             {

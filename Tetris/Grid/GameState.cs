@@ -11,11 +11,9 @@ namespace Tetris.Grid
 {
     public class GameState
     {
-
         public GameGrid GameGrid { get; }
         public BlockQueue BlockQueue { get; }
         public bool GameOver { get; private set; }
-
         private Block _currentBlock;
         public int Score;
         public Block HeldBlock { get; private set; }
@@ -82,23 +80,30 @@ namespace Tetris.Grid
             CanHold = false;
         }
 
+        #region Block Movement
         public void RotateBlockCW() 
         {
             CurrentBlock.RotationCW();
             if (!BlockFits())
             {
-                CurrentBlock.RotationCW();
+                if (!TryWallKick(CurrentBlock))
+                {
+                    CurrentBlock.RotationCCW(); 
+                }
             }
         }
         public void RotateBlockCCW()
         {
             CurrentBlock.RotationCCW();
+
             if (!BlockFits())
             {
-                CurrentBlock.RotationCCW();
+                if (!TryWallKick(CurrentBlock))
+                {
+                    CurrentBlock.RotationCW(); 
+                }
             }
         }
-
         public void MoveBlockLeft()
         {
             CurrentBlock.Move(0, -1);
@@ -128,6 +133,8 @@ namespace Tetris.Grid
                 PlaceBlock();
             }
         }
+
+        #endregion
         private bool IsGameOver()
         {
             return !(GameGrid.IsRowEmpty(0) && GameGrid.IsRowEmpty(1));
@@ -180,6 +187,25 @@ namespace Tetris.Grid
         {
             CurrentBlock.Move(BlockDropDistance(), 0);
             PlaceBlock();
+        }
+
+        private bool TryWallKick(Block block)
+        {
+            int[] offsets = { -1, 1, -2, 2 };
+
+            foreach (int offset in offsets)
+            {
+                block.Move(0, offset); 
+
+                if (BlockFits()) 
+                {
+                    return true;
+                }
+
+                block.Move(0, -offset); 
+            }
+
+            return false; 
         }
     }
 }

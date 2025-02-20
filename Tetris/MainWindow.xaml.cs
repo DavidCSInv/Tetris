@@ -74,6 +74,7 @@ namespace Tetris
             return imageControls;
         }
 
+        #region Draws
         private void DrawGrid(GameGrid grid)
         {
             for (int r = 0; r < grid.Rows; r++)
@@ -138,6 +139,7 @@ namespace Tetris
 
         }
 
+        #endregion
         private async Task GameLoop()
         {
             Draw(_gameState);
